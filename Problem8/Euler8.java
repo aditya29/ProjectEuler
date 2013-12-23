@@ -1,0 +1,64 @@
+
+public class Euler8 {
+	public static void main (String[] args)
+	{
+		//1234567890
+		
+		String input1 = "73167176531330624919225119674426574742355349194934";
+		String input2 = "96983520312774506326239578318016984801869478851843";
+		String input3 = "85861560789112949495459501737958331952853208805511";
+		String input4 = "12540698747158523863050715693290963295227443043557";
+		String input5 = "66896648950445244523161731856403098711121722383113";
+		String input6 = "62229893423380308135336276614282806444486645238749";
+		String input7 = "30358907296290491560440772390713810515859307960866";
+		String input8 = "70172427121883998797908792274921901699720888093776";
+		String input9 = "65727333001053367881220235421809751254540594752243";
+		String input10 = "52584907711670556013604839586446706324415722155397";
+		String input11 = "53697817977846174064955149290862569321978468622482";
+		String input12 = "83972241375657056057490261407972968652414535100474";
+		String input13 = "82166370484403199890008895243450658541227588666881";
+		String input14 = "16427171479924442928230863465674813919123162824586";
+		String input15 = "17866458359124566529476545682848912883142607690042";
+		String input16 = "24219022671055626321111109370544217506941658960408";
+		String input17 = "07198403850962455444362981230987879927244284909188";
+		String input18 = "84580156166097919133875499200524063689912560717606";
+		String input19 = "05886116467109405077541002256983155200055935729725";
+		String input20 = "71636269561882670428252483600823257530420752963450";
+		
+		
+		String actualInput = input1+input2+input3+input4+input5+input6+input7+input8+input9+input10+input11+input12+input13
+				+input14+input15+input16+input17+input18+input19+input20;
+		
+		
+		//String actualInput = "1234567820";
+		
+		int[] array = new int[1000];
+		char inputAsChars[] = actualInput.toCharArray();
+		
+		//fill array with all digits from input string
+		for(int i = 0; i < inputAsChars.length; i++)
+		{
+			char c = inputAsChars[i];
+			int temp = Character.getNumericValue(c);
+			array[i] = temp;
+		}
+		
+		int curProd = 0;
+		
+		for(int j = 0; j < array.length - 4; j++)
+		{
+			int dig1 = array[j];
+			int dig2 = array[j+1];
+			int dig3 = array[j+2];
+			int dig4 = array[j+3];
+			int dig5 = array[j+4];
+			
+			int temp = dig1*dig2*dig3*dig4*dig5;
+			if(temp > curProd)
+				curProd = temp;
+		}
+		
+		System.out.println(curProd);
+		
+	}
+}
